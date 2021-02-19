@@ -77,6 +77,34 @@ class LinkedList {
         previousNode.next = currNode.next;
     }
 
+    insertBefore(item){
+        // Start at the head
+        let currNode = this.head;
+        // If the list is empty
+        if (!this.head) {
+            return null;
+        }
+
+        if (this.head == item){
+            this.insertFirst(item)
+        }
+
+        // Check for the item 
+        while (currNode.next !== item) {
+            /* Return null if it's the end of the list 
+               and the item is not on the list */
+            if (currNode.next === null) {
+                return null;
+            }
+            else {
+                // Otherwise, keep looking 
+                currNode = currNode.next;
+            }
+        }
+        // Found it
+        return currNode;
+    }
+
 }
 
 function main(){
