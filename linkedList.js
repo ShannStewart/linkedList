@@ -1,3 +1,10 @@
+class _Node {
+    constructor(value, next) {
+        this.value = value;
+        this.next = next;
+    }
+}
+
 class LinkedList {
     constructor(){
         this.head = null;
@@ -8,12 +15,12 @@ class LinkedList {
     }
 
     insertLast(item){
-        if(this.head = null){
+        if(this.head === null){
             this.insertFirst(item);
         }
         else{
             let tempNode = this.head;
-            while (tempNode.next !== head){
+            while (tempNode.next !== null){
                 tempNode = tempNode.next;
             }
             tempNode.next = new _Node(item, null)
@@ -75,17 +82,22 @@ class LinkedList {
 function main(){
     const SLL = new LinkedList;
 
-    SLL.insertFirst(Apollo);
-    SLL.insertLast(Boomer);
-    SLL.insertLast(Helo);
-    SLL.insertLast(Husker);
-    SLL.insertLast(Starbuck);
+    SLL.insertFirst("Apollo");
+    SLL.insertLast("Boomer");
+    SLL.insertLast("Helo");
+    SLL.insertLast("Husker");
+    SLL.insertLast("Starbuck");
 
-    console.log("Linked List: " + SLL);
+    console.log("Linked List: " + JSON.stringify(SLL));
     
-    SLL.insertLast(Tauhida);
+    SLL.insertLast("Tauhida");
+
+    console.log("Linked List: " + JSON.stringify(SLL));
+
+    SLL.remove("Husker");
+
+    console.log("Linked List: " + JSON.stringify(SLL));
     
-    SLL.remove(Husker);
 }
 
 main();
